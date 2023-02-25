@@ -1,4 +1,5 @@
 // Module 8. Practice week #2. Chess. ChessPiece.
+
 public abstract class ChessPiece {
     String color;
     boolean check;
@@ -8,7 +9,9 @@ public abstract class ChessPiece {
     }
 
     public abstract String getColor();
+
     public abstract boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn);
+
     public abstract String getSymbol();
 
 }
