@@ -1,9 +1,8 @@
-// Module 8. Practice week #2. Chess. ChessPiece.
+// Module 8. Practice week #2. Chess. ChessPiece "Rook".
 public class Rook extends ChessPiece {
-    boolean check = true;
 
     public Rook(String color) {
-        super(color);
+        super ( color );
     }
 
     @Override
@@ -13,13 +12,14 @@ public class Rook extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
+        // check is move not into himself
         if (!((line == toLine) && (column == toColumn))) {
-            if (chessBoard.checkPos(toLine) && chessBoard.checkPos(toColumn) && chessBoard.checkPos(line) && chessBoard.checkPos(toLine)
-                    && (chessBoard.board[line][column] != null)) {
-                if ((((line == toLine) && (Math.abs(toColumn - column) <= 7)) || ((column == toColumn) && (Math.abs(toLine - line) <= 7)))
-                        && (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].getColor().equals(chessBoard.nowPlayerColor())))
+            if (isOnChessBoard ( chessBoard, line, column, toLine, toColumn )) {
+                if ((((line == toLine) && (Math.abs ( toColumn - column ) <= 7) && isFreeLine ( chessBoard, line, column, toLine, toColumn )) ||
+                        ((column == toColumn) && (Math.abs ( toLine - line ) <= 7) && isFreeColumn ( chessBoard, line, column, toLine, toColumn )))
+                        && (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].getColor ().equals ( chessBoard.nowPlayerColor () )))
                     return true;
-            }
+            } else return false;
         }
         return false;
     }

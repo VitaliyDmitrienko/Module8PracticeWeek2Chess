@@ -1,9 +1,8 @@
-// Module 8. Practice week #2. Chess. ChessPiece.
+// Module 8. Practice week #2. Chess. ChessPiece "King".
 public class King extends ChessPiece {
-    boolean check = true;
 
     public King(String color) {
-        super(color);
+        super ( color );
     }
 
     @Override
@@ -13,14 +12,13 @@ public class King extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
+        // check is move not into himself
         if (!((line == toLine) && (column == toColumn))) {
-            if (chessBoard.checkPos(toLine) && chessBoard.checkPos(toColumn) && chessBoard.checkPos(line) && chessBoard.checkPos(toLine)
-                    && (chessBoard.board[line][column] != null)) {
-                if (((Math.abs(toLine - line) <= 1) && (Math.abs(toColumn - column) <= 1)) &&
-                        (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].getColor().equals(chessBoard.nowPlayerColor()))
-                        && !isUnderAttack(chessBoard, toLine, toColumn))
+            if (isOnChessBoard ( chessBoard, line, column, toLine, toColumn )) {
+                if (((Math.abs ( toLine - line ) <= 1) && (Math.abs ( toColumn - column ) <= 1)) &&
+                        (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].getColor ().equals ( chessBoard.nowPlayerColor () ))
+                        && !isUnderAttack ( chessBoard, toLine, toColumn ))
                     return true;
-
             }
         }
         return false;
@@ -33,10 +31,10 @@ public class King extends ChessPiece {
 
     public boolean isUnderAttack(ChessBoard board, int line, int column) {
         if (board.checkPos(line) && board.checkPos(column)) {
-            for (int i = 0; i < 7; i++) {
-                for (int j = 0; j < 7; j++) {
+            for (int i = 0; i <= 7; i++) {
+                for (int j = 0; j <= 7; j++) {
                     if (board.board[i][j] != null) {
-                        if (!board.board[i][j].getColor().equals(board.nowPlayerColor()) && board.board[i][j].canMoveToPosition(board, i, j, line, column)) {
+                        if (!board.board[i][j].getColor ().equals ( board.nowPlayerColor () ) && board.board[i][j].canMoveToPosition ( board, i, j, line, column )) {
                             return true;
                         }
                     }
