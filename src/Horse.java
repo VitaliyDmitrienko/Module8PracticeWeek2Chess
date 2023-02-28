@@ -1,4 +1,5 @@
 // Module 8. Practice week #2. Chess. ChessPiece "Horse".
+
 public class Horse extends ChessPiece {
 
     public Horse(String color) {

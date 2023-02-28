@@ -1,4 +1,5 @@
 // Module 8. Practice week #2. Chess. ChessPiece "Rook".
+
 public class Rook extends ChessPiece {
 
     public Rook(String color) {
