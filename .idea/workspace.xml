@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d694edc-8ccd-46be-958b-c3fd1477cdea" name="Changes" comment="">
+    <list default="true" id="3d694edc-8ccd-46be-958b-c3fd1477cdea" name="Changes" comment="Final commit. All done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChessPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Horse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +24,42 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN",
+      "assignee": "VitaliyDmitrienko",
+      "reviewState": "CHANGES_REQUESTED",
+      "author": "VitaliyDmitrienko"
+    },
+    {
+      "state": "MERGED",
+      "assignee": "VitaliyDmitrienko",
+      "reviewState": "CHANGES_REQUESTED",
+      "author": "VitaliyDmitrienko"
+    },
+    {
+      "state": "MERGED",
+      "assignee": "VitaliyDmitrienko",
+      "reviewState": "APPROVED",
+      "author": "VitaliyDmitrienko"
+    }
+  ],
+  "lastFilter": {
+    "state": "MERGED",
+    "assignee": "VitaliyDmitrienko",
+    "reviewState": "APPROVED",
+    "author": "VitaliyDmitrienko"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d40bb8b4-fb2d-4a2b-aed6-144cd05f585f" />
+        <option name="url" value="https://github.com/VitaliyDmitrienko/Module8PracticeWeek2Chess.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -126,7 +158,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677320489452</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="5th commit. Workable castling0/7. Check isFreeDiagonal (Bishop+Queen) under construction. Check line+row for Rook is workable.">
+      <created>1677512899006</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677512899006</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Final commit. All done.">
+      <created>1677594280066</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677594280066</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,7 +186,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -155,7 +201,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2nd commit. Horse + Pawn." />
     <MESSAGE value="3rd commit. Horse + Pawn + Bishop + Rook + Queen." />
-    <option name="LAST_COMMIT_MESSAGE" value="3rd commit. Horse + Pawn + Bishop + Rook + Queen." />
+    <MESSAGE value="5th commit. Workable castling0/7. Check isFreeDiagonal (Bishop+Queen) under construction. Check line+row for Rook is workable." />
+    <MESSAGE value="Final commit. All done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final commit. All done." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="chessBoard.board[toLine][toColumn]" />
+      </configuration>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/Pawn.java" line="27">
+        <watch expression="chessBoard.board[toLine][toColumn] != null" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
 </project>

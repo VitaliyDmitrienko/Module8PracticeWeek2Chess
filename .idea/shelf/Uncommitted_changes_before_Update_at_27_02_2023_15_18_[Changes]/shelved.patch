@@ -1,0 +1,287 @@
+Index: src/Pawn.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Module 8. Practice week #2. Chess. ChessPiece.\r\npublic class Pawn extends ChessPiece {\r\n    String color;\r\n    boolean check;\r\n\r\n    public Pawn(String color) {\r\n        super(color);\r\n    }\r\n\r\n    public String getColor() {\r\n        return color;\r\n    }\r\n\r\n    public boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {\r\n\r\n    }\r\n\r\n    public String getSymbol() {\r\n        return \"P\";\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Pawn.java b/src/Pawn.java
+--- a/src/Pawn.java	(revision 0908bb96767268ae712d8a7bc8e25c80de628328)
++++ b/src/Pawn.java	(date 1676991689747)
+@@ -1,20 +1,40 @@
+ // Module 8. Practice week #2. Chess. ChessPiece.
+ public class Pawn extends ChessPiece {
+-    String color;
+-    boolean check;
+ 
+     public Pawn(String color) {
+         super(color);
+     }
+ 
++    @Override
+     public String getColor() {
+-        return color;
++        return this.color;
+     }
+ 
++//    public boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
++//        if (line != toLine && column != toColumn) {
++//            if ((toLine >= 0 && toLine <=7) && (toColumn >= 0 && toColumn <=7)) {
++//                if ((color.equals ("White") && (((line == 1 && (toLine - line) <= 2) || (line > 1 && (toLine - line) == 1))
++//                            || ((toLine-line) == 1 && Math.abs (toColumn-column) == 1)))) return true;
++//
++//
++//                else if ((color.equals ( "Black") && (((line == 7 && (line - toLine) <= 2) || (line < 7 && (line - toLine) == 1))
++//                            || ((line - toLine) == 1 && Math.abs (toColumn-column) == 1)))) return true;
++//                }
++//        } return false;
++//    }
++    @Override
+     public boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
++        if (line != toLine && column != toColumn) {
++            if ( (chessBoard.checkPos (line)) && (chessBoard.checkPos (toLine) && (chessBoard.checkPos ( column )) &&
++                    (chessBoard.checkPos ( toLine )))) {
++                if (color.equals ( "White" ))
++            }
++        }
+ 
+     }
+ 
++
++    @Override
+     public String getSymbol() {
+         return "P";
+     }
+Index: src/Horse.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Module 8. Practice week #2. Chess. ChessPiece.\r\npublic class Horse extends ChessPiece {\r\n    String color;\r\n    boolean check;\r\n\r\n    public Horse(String color) {\r\n        super(color);\r\n    }\r\n\r\n    public String getColor() {\r\n        return color;\r\n    }\r\n    public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {\r\n        if (line != toLine && column != toColumn) {\r\n            if ((toLine >= 0 && toLine <=7) && (toColumn >= 0 && toColumn <=7)) {\r\n                if ( ( ( Math.abs(toLine - line ) == 2) && (Math.abs (toColumn - column) == 1 )) ||\r\n                        ( (Math.abs(toLine - line ) == 1) && (Math.abs (toColumn - column) == 2 )) )\r\n                    return true;\r\n            }\r\n        } return false;\r\n    }\r\n    public String getSymbol() {\r\n        return \"H\";\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Horse.java b/src/Horse.java
+--- a/src/Horse.java	(revision 0908bb96767268ae712d8a7bc8e25c80de628328)
++++ b/src/Horse.java	(date 1676990552673)
+@@ -1,15 +1,14 @@
+ // Module 8. Practice week #2. Chess. ChessPiece.
+ public class Horse extends ChessPiece {
+-    String color;
+-    boolean check;
+ 
+     public Horse(String color) {
+         super(color);
+     }
+ 
+     public String getColor() {
+-        return color;
++        return this.color;
+     }
++
+     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
+         if (line != toLine && column != toColumn) {
+             if ((toLine >= 0 && toLine <=7) && (toColumn >= 0 && toColumn <=7)) {
+@@ -19,6 +18,7 @@
+             }
+         } return false;
+     }
++
+     public String getSymbol() {
+         return "H";
+     }
+Index: src/Queen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Queen.java b/src/Queen.java
+new file mode 100644
+--- /dev/null	(date 1676967279435)
++++ b/src/Queen.java	(date 1676967279435)
+@@ -0,0 +1,20 @@
++// Module 8. Practice week #2. Chess. ChessPiece.
++public class Queen extends ChessPiece {
++    String color;
++    boolean check;
++
++    public Queen(String color) {
++        super(color);
++    }
++
++    public String getColor() {
++        return color;
++    }
++
++    public boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn);
++
++    public String getSymbol() {
++        return "Q";
++    }
++
++}
+Index: src/Rook.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Rook.java b/src/Rook.java
+new file mode 100644
+--- /dev/null	(date 1676975332269)
++++ b/src/Rook.java	(date 1676975332269)
+@@ -0,0 +1,27 @@
++// Module 8. Practice week #2. Chess. ChessPiece.
++public class Rook extends ChessPiece {
++    String color;
++    boolean check;
++
++    public Rook(String color) {
++        super(color);
++    }
++
++    public String getColor() {
++        return color;
++    }
++    public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
++        if (line != toLine && column != toColumn) {
++            if ((toLine >= 0 && toLine <=7) && (toColumn >= 0 && toColumn <=7)) {
++                   if (  )
++                       return true;
++            }
++        } return false;
++    }
++
++
++    public String getSymbol() {
++        return "R";
++    }
++
++}
+Index: src/Bishop.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Bishop.java b/src/Bishop.java
+new file mode 100644
+--- /dev/null	(date 1676967212645)
++++ b/src/Bishop.java	(date 1676967212645)
+@@ -0,0 +1,19 @@
++// Module 8. Practice week #2. Chess. ChessPiece.
++public class Bishop extends ChessPiece {
++    String color;
++    boolean check;
++
++    public Bishop(String color) {
++        super(color);
++    }
++
++    public String getColor() {
++        return color;
++    }
++    public boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn);
++
++    public String getSymbol() {
++        return "B";
++    }
++
++}
+Index: src/King.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/King.java b/src/King.java
+new file mode 100644
+--- /dev/null	(date 1676967243028)
++++ b/src/King.java	(date 1676967243028)
+@@ -0,0 +1,20 @@
++// Module 8. Practice week #2. Chess. ChessPiece.
++public class King extends ChessPiece {
++    String color;
++    boolean check;
++
++    public King(String color) {
++        super(color);
++    }
++
++    public String getColor() {
++        return color;
++    }
++
++    public boolean canMoveToPosition (ChessBoard chessBoard, int line, int column, int toLine, int toColumn);
++
++    public String getSymbol() {
++        return "K";
++    }
++
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"3d694edc-8ccd-46be-958b-c3fd1477cdea\" name=\"Changes\" comment=\"2nd commit. Horse + Pawn.\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2M2RlfESem5yqmQh6OIqPz7GysZ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n    <option name=\"showVisibilityIcons\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"3d694edc-8ccd-46be-958b-c3fd1477cdea\" name=\"Changes\" comment=\"\" />\r\n      <created>1676963845971</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1676963845971</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"2nd commit. Horse + Pawn.\">\r\n      <created>1676964236079</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676964236079</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"2nd commit. Horse + Pawn.\">\r\n      <created>1676964343222</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676964343222</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"2nd commit. Horse + Pawn.\">\r\n      <created>1676964358238</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676964358238</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"2nd commit. Horse + Pawn.\">\r\n      <created>1676964379843</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676964379843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"2nd commit. Horse + Pawn.\">\r\n      <created>1676964495979</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676964495979</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"2nd commit. Horse + Pawn.\">\r\n      <created>1676964519262</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676964519262</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"2nd commit. Horse + Pawn.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"2nd commit. Horse + Pawn.\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0908bb96767268ae712d8a7bc8e25c80de628328)
++++ b/.idea/workspace.xml	(date 1676967279576)
+@@ -5,7 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3d694edc-8ccd-46be-958b-c3fd1477cdea" name="Changes" comment="2nd commit. Horse + Pawn.">
++      <change afterPath="$PROJECT_DIR$/src/Bishop.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/King.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Queen.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Rook.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Horse.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pawn.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -33,12 +39,17 @@
+     <option name="showMembers" value="true" />
+     <option name="showVisibilityIcons" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
++  }
++}</component>
++  <component name="RecentsManager">
++    <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="" />
++    </key>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -90,7 +101,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1676964519262</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="2nd commit. Horse + Pawn.">
++      <created>1676964618119</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1676964618119</updated>
++    </task>
++    <task id="LOCAL-00008" summary="2nd commit. Horse + Pawn.">
++      <created>1676964830696</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1676964830696</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">

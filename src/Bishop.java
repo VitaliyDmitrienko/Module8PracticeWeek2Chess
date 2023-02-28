@@ -30,20 +30,4 @@ public class Bishop extends ChessPiece {
         return "B";
     }
 
-    public boolean isFreeDiagonal(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if ((toColumn > column) && (toLine > line)) {
-            int i;
-            int j = (toLine - 1);
-            int countFreeColumn = 0;
-            for (i = (toColumn - 1), j; i > line,j > column;
-            i++, j++){
-                if (chessBoard.board[i][j] != null) countFreeColumn++;
-            }
-            if (countFreeColumn == 0) return true;
-        } else if ((toColumn > column) && (line > toLine)) {
-        } else if ((column > toColumn) && (toLine > line)) {
-        } else if ((column > toColumn) && (line > toLine)) {
-        } else return false;
-    }
-
 }

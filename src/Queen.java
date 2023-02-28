@@ -15,7 +15,7 @@ public class Queen extends ChessPiece {
         // check is move not into himself
         if (!((line == toLine) && (column == toColumn))) {
             if (isOnChessBoard ( chessBoard, line, column, toLine, toColumn )) {
-                if (((Math.abs ( toLine - line ) == Math.abs ( toColumn - column ))) && (chessBoard.board[toLine][toColumn] == null
+                if (((Math.abs ( toLine - line ) == Math.abs ( toColumn - column )) && isFreeDiagonal ( chessBoard, line, column, toLine, toColumn )) && (chessBoard.board[toLine][toColumn] == null
                         || !chessBoard.board[toLine][toColumn].getColor ().equals ( chessBoard.nowPlayerColor () )))
                     return true;
                 else if ((((line == toLine) && (Math.abs ( toColumn - column ) <= 7) && isFreeLine ( chessBoard, line, column, toLine, toColumn ))

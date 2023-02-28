@@ -16,13 +16,16 @@ public class Pawn extends ChessPiece {
         if (!((line == toLine) && (column == toColumn))) {
             if (isOnChessBoard ( chessBoard, line, column, toLine, toColumn )) {
                 if (this.color.equals ( "White" )) {
-                    if (((line == 1) && ((toLine - line) <= 2) && (toColumn == column) && (chessBoard.board[line + 1][column] == null) && (chessBoard.board[toLine][toColumn] == null)) ||
-                            (((toLine - line) == 1) && (toColumn == column) && (chessBoard.board[toLine][toColumn] != null)) ||
-                            (((toLine - line) == 1) && (Math.abs ( toColumn - column ) == 1) && (chessBoard.board[toLine][toColumn] != null && chessBoard.board[toLine][toColumn].getColor ().equals ( "Black" ))))
+                    if ((line == 1) && ((toLine - line) <= 2) && (toColumn == column) && (chessBoard.board[line + 1][column] == null) && (chessBoard.board[toLine][toColumn] == null))
                         return true;
+                    else if (((toLine - line) == 1) && (toColumn == column) && (chessBoard.board[toLine][toColumn] == null))
+                        return true;
+                    else if (((toLine - line) == 1) && (Math.abs ( toColumn - column ) == 1) && (chessBoard.board[toLine][toColumn] != null && chessBoard.board[toLine][toColumn].getColor ().equals ( "Black" )))
+                        return true;
+                    else return false;
                 } else {
                     if (((line == 6) && ((line - toLine) <= 2) && (toColumn == column) && (chessBoard.board[line - 1][column] == null) && (chessBoard.board[toLine][toColumn] == null)) ||
-                            (((line - toLine) == 1) && (toColumn == column) && (chessBoard.board[toLine][toColumn] != null)) ||
+                            (((line - toLine) == 1) && (toColumn == column) && (chessBoard.board[toLine][toColumn] == null)) ||
                             (((line - toLine) == 1) && (Math.abs ( toColumn - column ) == 1) && (chessBoard.board[toLine][toColumn] != null && chessBoard.board[toLine][toColumn].getColor ().equals ( "White" ))))
                         return true;
                 }
